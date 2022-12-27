@@ -1,0 +1,31 @@
+<%if @a1.cover_photo.present?%>
+   <%= image_tag @a1.cover_photo , :size => "260x180"%></a>
+<% end %>
+
+<p><%= session[:title] %></p>
+
+<h1><%= @a1.title %></h1>
+
+<p><%= @a1.body %></p>
+
+<p><%= @a1.account_no %></p>
+
+
+<ul>
+  <li><%= link_to "Edit", [:edit, @a1] %></li>
+  <li><%= link_to "Destroy", article_path(@a1), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+<h2>Comments</h2>
+<%= render @a1.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<h2>Add a formtset:</h2>
+<%= render 'formtests/newform' %>
+
+
+

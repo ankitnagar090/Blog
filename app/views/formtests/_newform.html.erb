@@ -1,0 +1,97 @@
+<%= form_with model: [ @a1, @a1.formtests.build ] do |form| %>
+<div>
+  <%= form.label :name, "Name:" %>
+  <%= form.text_field :name %>
+</div>
+
+<div>
+  <%= form.check_box :pet_dog %>
+  <%= form.label :pet_dog, "I own a dog" %>
+  <%= form.check_box :pet_cat %>
+  <%= form.label :pet_cat, "I own a cat" %>
+</div>
+
+<div>
+  <%= form.label :message, "text :" %>
+  <%= form.text_area :message, size: "70x5" %>
+</div>  
+<div> 
+  <%= form.label :password, "Password :" %> 
+  <%= form.password_field :password %>
+</div>
+<div>
+  <%= form.label :price, "Price :" %>
+  <%= form.number_field :price, in: 1.0..20.0, step: 0.5 %>
+</div>
+<div>
+  <%= form.label :disscount, "Range :" %>
+  <%= form.range_field :disscount, in: 1..100 %>
+</div>
+  <%= form.label :born_on, "Date :" %>
+  <%= form.date_field :born_on %>
+<div>
+  <%= form.label :started_at, "time :" %>
+  <%= form.time_field :started_at %>
+</div>
+<div>
+  <%= form.label :graduation_day, "DateTime :" %>
+  <%= form.datetime_local_field :graduation_day %>
+</div>
+<div>
+  <%= form.label :birthday_month, "Month :" %>
+  <%= form.month_field :birthday_month %>
+</div>
+<div>
+  <%= form.label :birthday_week, "Week :" %>
+  <%= form.week_field :birthday_week %>
+</div>
+<div>
+  <%= form.label :address, "email" %>
+  <%= form.email_field :address %>
+</div>
+<div>
+  <%= form.label :phone, "phone_no :" %>
+  <%= form.telephone_field :phone %>
+</div>
+<div>
+  <%= form.label :hompage, "url:" %>
+  <%= form.url_field :hompage %>
+</div>
+<div>
+  <%= form.label :favorite_color, "color :" %>
+  <%= form.color_field :favorite_color %>
+</div>
+  <%= form.select :city, {
+        "Europe" => [ ["Berlin", "BE"], ["Madrid", "MD"] ],
+        "North America" => [ ["Chicago", "CHI"] ],
+      } , selected: "Madrid"%>
+</div>
+<div>
+  <%= form.time_zone_select :time_zone %>
+</div>
+
+<div>
+  <%= form.date_select :birth_date %>
+</div>
+
+<div>
+  <%= select_year 1999, prefix: "party" %>
+</div>
+
+<div>
+  <%= form.collection_select :id, Formtest.order(:name), :id, :name %>
+
+</div>
+
+<div>
+  <%= form.collection_radio_buttons :id, Formtest.order(:name), :id, :favorite_color %>
+</div>
+
+<div>
+  <%= form.file_field :picture %>
+</div>
+<p>
+  <%= form.submit %>
+</p>
+ 
+<% end %>

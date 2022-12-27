@@ -1,0 +1,71 @@
+<%#byebug%>
+
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+
+
+
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form.label :title_confirmation %><br>
+    <%= form.text_field :title_confirmation %>
+
+
+
+    <% article.errors.full_messages_for(:title_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+     
+
+<div>
+    <%= form.label :account_no %><br>
+    <%= form.text_area :account_no %><br>
+    <% article.errors.full_messages_for(:account_no).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.file_field :cover_photo %>
+  </div>
+  
+
+Comments:
+  <ul>
+    <%= form.fields_for :comment do |comments_form| %>
+      <li>
+        <%= comments_form.label :commenter %>
+        <%= comments_form.text_field :commenter %>
+
+        <%= comments_form.label :body %>
+        <%= comments_form.text_field :body %>
+
+        <%= comments_form.check_box :_destroy %>
+        <%= comments_form.label :kind %>
+        ...
+      </li>
+    <% end %>
+  </ul>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+  
+  <% end %>
+ 
