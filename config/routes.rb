@@ -8,9 +8,8 @@ Rails.application.routes.draw do
    "https://rubyonrails.org"
   end
 
-  resources :articles do
-    
-     get 'preview', on: :new
+  resources :articles do   
+   get 'preview', on: :new
     
    resources :comments
    resources :formtests
