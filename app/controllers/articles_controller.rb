@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
     @a1 = Article.all
    #render json: @a1, formats: :xml
     session[:title]="ankit"
+    
   end
 
   def show
